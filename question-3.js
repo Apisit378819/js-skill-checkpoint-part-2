@@ -10,15 +10,18 @@ const handleResponse = (response) => {
 const dataUsers = (data) => {
     console.log(data)
     const longUser = data.map(data => {
-        console.log(data.name)
-    }).filter(data => {
-        console.log(data.length > 17)
-    }) //เศร้าเลยคำตอบไม่ออก ที่เศร้ากว่าคือจำไม่ได้ TT
+        console.log(data.name.length)
+        return data.name
+    }).filter(name => {
+         return name.length > 17
+    }) 
+    console.log(longUser)
   };
 
 getUsers()
 .then(handleResponse)
 .then(dataUsers)
+.catch(console.log("Error"))
 
 
 
